@@ -76,6 +76,8 @@ def search(query_text):
                      source=False)
 
     print(resp)
+    print("---------------")
+    print(resp['hits'])
 
     body = resp['hits']['hits'][0]['fields']['body_content'][0]
     url = resp['hits']['hits'][0]['fields']['url'][0]
