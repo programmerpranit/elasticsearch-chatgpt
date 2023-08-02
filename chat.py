@@ -2,6 +2,7 @@ import os
 import streamlit as st
 import openai
 from elasticsearch import Elasticsearch
+import logging
 
 # This code is part of an Elastic Blog showing how to combine
 # Elasticsearch's search relevancy power with 
@@ -75,9 +76,9 @@ def search(query_text):
                      size=1,
                      source=False)
 
-    print(resp)
-    print("---------------")
-    print(resp['hits'])
+    logging.info(resp)
+    logging.info("---------------")
+    logging.info(resp['hits'])
 
     body = resp['hits']['hits'][0]['fields']['body_content'][0]
     url = resp['hits']['hits'][0]['fields']['url'][0]
